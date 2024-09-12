@@ -1,5 +1,7 @@
 package lecture1.abstractandinterface;
 
+import java.util.Arrays;
+
 public class Animals {
     // Використання
     public static void main(String[] args) {
@@ -11,6 +13,13 @@ public class Animals {
         fish.makeSound(); // Виведе: Nemo doesn't make a sound.
         fish.swim();      // Виведе: Nemo is swimming.
         fish.eat();       // Виведе: Buddy is eating.
+
+        Dog dog1 = new Dog("Buddy", "John");
+        System.out.println(dog1.master); // Виведе: John
+        System.out.println(dog1.name); // Виведе: Buddy
+        System.out.println(dog1.getClass().getSimpleName()); // Виведе: Dog
+
+        Arrays.asList(dog, dog1, fish).forEach(Animal::makeSound);
     }
 }
 
@@ -31,10 +40,15 @@ public class Animals {
 
     // Звичайний клас, що успадковує абстрактний
     class Dog extends Animal {
+     String  master;
         public Dog(String name) {
             super(name);
         }
 
+        public Dog(String name, String master) {
+            super(name);
+            this.master = master;
+        }
         @Override
         public void makeSound() {
             System.out.println(name + " barks: Woof!");
