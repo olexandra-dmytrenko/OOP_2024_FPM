@@ -10,7 +10,7 @@ public class FamilyController {
         this.family = family;
         this.duties = duties;
     }
-
+//TODO bad practice, cycle in cycle. Should use availability to determine who should do the thing and think of nonrepeating.
     public void doDuties() {
         for (FamilyMember familyMember : family) {
             for (Duty duty : duties.duties) {
