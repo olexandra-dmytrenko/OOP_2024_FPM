@@ -13,7 +13,9 @@ public class FamilyController {
 
     public void doDuties() {
         for (FamilyMember familyMember : family) {
-            duties.doDuty(familyMember);
+            for (Duty duty : duties.duties) {
+                duty.doIt(familyMember);
+            }
         }
     }
 }
